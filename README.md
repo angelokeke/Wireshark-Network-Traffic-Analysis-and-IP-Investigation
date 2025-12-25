@@ -4,8 +4,11 @@ This project involved capturing and analyzing real network traffic using Wiresha
 ## Lab Environment
 
 -Pop!_OS virtual machine running in Oracle VirtualBox
+
 -Traffic captured from VM network interface (enp0s3)
+
 -Wireshark installed and configured for non-root packet capture
+
 -Capture saved to .pcapng file for analysis
 
 Running the lab inside a VM ensured the session was isolated from the host system and allowed network analysis without affecting normal device activity.
@@ -15,7 +18,9 @@ Running the lab inside a VM ensured the session was isolated from the host syste
 During the live capture, I observed and analyzed:
 
 -DNS queries
+
 -NTP background traffic
+
 -TLS encrypted sessions
 
 Display filters were applied to narrow the dataset and review protocol-specific behavior.
@@ -27,7 +32,9 @@ DNS filtering revealed normal domain lookups to legitimate services such as Mozi
 To further examine host interactions, I used:
 
 -Follow UDP Stream
+
 -Packet conversation views
+
 -Source vs destination traffic review
 
 The red and blue stream output helped distinguish client requests from server responses and visualize communication flow.
@@ -37,6 +44,7 @@ One observed connection involved an Akamai content delivery network host. Based 
 Using Wireshark’s Statistics → Endpoints feature, I reviewed IPv4 activity and identified:
 
 -the most active private IP (VM internal address)
+
 -the highest-volume public IP
 
 The private 10.x.x.x address was excluded since it belonged to the VM.
@@ -52,10 +60,15 @@ Because the address matched a known and trusted ISP and aligned with expected ne
 ## Findings and Conclusion
 
 After reviewing:
+
 -protocol filters
+
 -encrypted session metadata
+
 -UDP streams
+
 -endpoint statistics
+
 -external IP reputation checks
 
 I concluded that the captured traffic represented normal, safe network activity.
